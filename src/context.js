@@ -33,9 +33,7 @@ const AppProvider = ({ children }) => {
   const clearCart = () => {
     setCart([]);
     items.map((item) => {
-      if (item.id < items.length) {
-        item.inCartAmount = 0;
-      }
+      item.inCartAmount = 0;
     });
     setCartTotalPrice(0);
     setTotalItemsInCart(0);
@@ -53,10 +51,10 @@ const AppProvider = ({ children }) => {
     items.map((item) => {
       if (item.id === id) {
         setCartTotalPrice(cartTotalPrice + item.price);
+        setCart([...cart, item]);
         return (item.inCartAmount += 1);
       }
       setTotalItemsInCart(totalItemsInCart + 1);
-      setCart([...cart, items[id - 1]]);
     });
   };
 
