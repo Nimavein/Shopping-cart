@@ -21,9 +21,10 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <button>
-        {totalItemsInCart}
+      <button className="cart-icon-button">
+        <p className="in-cart-amount">{totalItemsInCart}</p>
         <FaShoppingBag
+          className="cart-icon"
           onClick={() => {
             if (!isCartOpen) {
               openCart();

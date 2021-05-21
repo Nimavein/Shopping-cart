@@ -3,20 +3,21 @@ import { useGlobalContext } from "./context";
 import CartItem from "./CartItem";
 import { FaTimes } from "react-icons/fa";
 
-const CartContainer = ({ id }) => {
+const CartContainer = () => {
   const { cart, clearCart, cartTotalPrice, isCartOpen, closeCart } =
     useGlobalContext();
   if (cart.length === 0) {
     return (
       <section className="cart-container">
         <button
+          className="close-cart-button"
           onClick={() => {
             if (isCartOpen) {
               closeCart();
             }
           }}
         >
-          <FaTimes />
+          <FaTimes className="x-icon" />
         </button>
         <h1>Empty cart</h1>
       </section>
@@ -25,13 +26,14 @@ const CartContainer = ({ id }) => {
   return (
     <section className="cart-container">
       <button
+        className="close-cart-button"
         onClick={() => {
           if (isCartOpen) {
             closeCart();
           }
         }}
       >
-        <FaTimes />
+        <FaTimes className="x-icon" />
       </button>
       <h1>Cart</h1>
       {cart.map((cartItem) => {

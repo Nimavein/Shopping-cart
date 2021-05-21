@@ -17,7 +17,6 @@ const ShopItem = ({ id, name, price, img, inCartAmount }) => {
             className="add-to-cart-button"
             onClick={() => addItemToCart(id)}
           >
-            {" "}
             Add to cart
           </button>
         )}
