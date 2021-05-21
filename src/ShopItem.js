@@ -13,7 +13,13 @@ const ShopItem = ({ id, name, price, img, inCartAmount }) => {
         <p>{name}</p>
         <p>${price}</p>
         {inCartAmount < 1 && (
-          <button onClick={() => addItemToCart(id)}> Add to cart</button>
+          <button
+            className="add-to-cart-button"
+            onClick={() => addItemToCart(id)}
+          >
+            {" "}
+            Add to cart
+          </button>
         )}
         {inCartAmount > 0 && <p className="already-in-cart">Already in cart</p>}
       </div>

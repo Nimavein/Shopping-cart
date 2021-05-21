@@ -6,12 +6,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: antiquewhite;
+  background-color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .navbar {
@@ -57,8 +61,7 @@ code {
 .shop-item-container {
   display: flex;
   flex-direction: column;
-  background-color: azure;
-  margin: 20px;
+  background-color: rgb(236, 243, 243);
   padding: 20px;
   align-items: center;
   width: 20%;
@@ -69,6 +72,7 @@ code {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 .shop-img {
@@ -96,4 +100,30 @@ code {
 
 .category-button:hover {
   color: chocolate;
+}
+
+.add-to-cart-button {
+  background-color: white;
+  color: black;
+  display: block;
+  width: 8rem;
+  font-size: large;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
+  border: black solid 1px;
+}
+
+.add-to-cart-button:hover {
+  background-color: black;
+  color: white;
+}
+
+.already-in-cart {
+  background-color: black;
+  color: white;
+  display: block;
+  width: 8rem;
+  padding: 10px;
+  border: black solid 1px;
 }

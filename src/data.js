@@ -66,6 +66,14 @@ const items = [
     price: 250,
     inCartAmount: 0,
   },
+  {
+    id: 9,
+    name: "AirPods Pro",
+    category: "headphones",
+    img: "https://res.cloudinary.com/grover/image/upload/e_trim/f_auto,q_auto/v1572790928/fdcal8bjd3flkea86el8.png",
+    price: 250,
+    inCartAmount: 0,
+  },
 ];
 
 export default items;
