@@ -2,8 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useGlobalContext } from "./context";
 
 const ItemNumberForm = ({ inCartAmount, id }) => {
-  const { calculateCartTotalCost, items, decreaseItemAmount } =
-    useGlobalContext();
+  const {
+    calculateCartTotalCost,
+    items,
+    decreaseItemAmount,
+    calculateTotalItemsInCartAmount,
+  } = useGlobalContext();
   const [amount, setAmount] = useState(inCartAmount);
 
   useEffect(() => {
@@ -13,6 +17,7 @@ const ItemNumberForm = ({ inCartAmount, id }) => {
     }
     items[id - 1].inCartAmount = amount;
     calculateCartTotalCost();
+    calculateTotalItemsInCartAmount();
   }, [amount]);
 
   useEffect(() => {

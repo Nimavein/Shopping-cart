@@ -46,6 +46,14 @@ const AppProvider = ({ children }) => {
     setIsCartOpen(false);
   };
 
+  const calculateTotalItemsInCartAmount = () => {
+    const newTotalItemsInCart = items.reduce(
+      (prev, cur) => prev + parseInt(cur.inCartAmount),
+      0
+    );
+    setTotalItemsInCart(newTotalItemsInCart);
+  };
+
   const calculateCartTotalCost = () => {
     const newTotalPrice = items.reduce(
       (prev, cur) => prev + cur.price * cur.inCartAmount,
@@ -76,7 +84,7 @@ const AppProvider = ({ children }) => {
         item.inCartAmount += 1;
         calculateCartTotalCost();
       }
-      setTotalItemsInCart(totalItemsInCart + 1);
+      calculateTotalItemsInCartAmount();
     });
   };
 
@@ -86,7 +94,7 @@ const AppProvider = ({ children }) => {
         item.inCartAmount -= 1;
         calculateCartTotalCost();
       }
-      setTotalItemsInCart(totalItemsInCart - 1);
+      calculateTotalItemsInCartAmount();
       deleteItemFromCart();
     });
   };
@@ -111,6 +119,7 @@ const AppProvider = ({ children }) => {
         filterByCategory,
         calculateCartTotalCost,
         deleteItemFromCart,
+        calculateTotalItemsInCartAmount,
       }}
     >
       {children}
