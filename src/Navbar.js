@@ -4,8 +4,7 @@ import { FaShoppingBag } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const { openCart, closeCart, isCartOpen, totalItemsInCart } =
-    useGlobalContext();
+  const { openCart, closeCart, isCartOpen, cart } = useGlobalContext();
   return (
     <div className="navbar">
       <ul className="navbar-links">
@@ -22,7 +21,7 @@ const Navbar = () => {
       </ul>
 
       <button className="cart-icon-button">
-        <p className="in-cart-amount">{totalItemsInCart}</p>
+        <p className="in-cart-amount">{cart.length}</p>
         <FaShoppingBag
           className="cart-icon"
           onClick={() => {
