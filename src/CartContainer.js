@@ -5,8 +5,14 @@ import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const CartContainer = () => {
-  const { cart, clearCart, cartTotalPrice, isCartOpen, closeCart } =
-    useGlobalContext();
+  const {
+    cart,
+    clearCart,
+    cartTotalPrice,
+    isCartOpen,
+    closeCart,
+    filterByCategory,
+  } = useGlobalContext();
   if (cart.length === 0) {
     return (
       <section className="cart-container">
@@ -32,7 +38,10 @@ const CartContainer = () => {
         <Link to="/shop" className="react-link">
           <button
             className="add-to-cart-button clear-all browse-products"
-            onClick={() => closeCart()}
+            onClick={() => {
+              filterByCategory("all");
+              closeCart();
+            }}
           >
             Browse products
           </button>

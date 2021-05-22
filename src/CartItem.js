@@ -2,6 +2,7 @@ import React from "react";
 import { useGlobalContext } from "./context";
 import { FaPlusCircle } from "react-icons/fa";
 import { FaMinusCircle } from "react-icons/fa";
+import ItemNumberForm from "./ItemNumberForm";
 
 const CartItem = ({ id, name, img, inCartAmount, price }) => {
   const { increaseItemAmount, decreaseItemAmount } = useGlobalContext();
@@ -20,7 +21,8 @@ const CartItem = ({ id, name, img, inCartAmount, price }) => {
               >
                 <FaMinusCircle className="amount-button-icon" />
               </button>
-              <p>{inCartAmount}</p>
+              {inCartAmount}
+              {/*<ItemNumberForm inCartAmount={inCartAmount}  /> */}
               <button
                 className="amount-button"
                 onClick={() => increaseItemAmount(id)}

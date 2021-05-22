@@ -47,6 +47,13 @@ const AppProvider = ({ children }) => {
     setIsCartOpen(false);
   };
 
+  //To fix
+  const calculateCartTotalCost = () => {
+    items.reduce((a, b) => {
+      console.log(a.inCartAmount * a.price + b.inCartAmount * b.price);
+    });
+  };
+
   const addItemToCart = (id) => {
     items.map((item) => {
       if (item.id === id) {
@@ -102,6 +109,7 @@ const AppProvider = ({ children }) => {
         clearCart,
         addItemToCart,
         filterByCategory,
+        calculateCartTotalCost,
       }}
     >
       {children}
