@@ -66,7 +66,7 @@ const CartContainer = () => {
         {cart.map((cartItem) => {
           return <CartItem key={cartItem.id} {...cartItem} />;
         })}
-        <h3>total price: ${cartTotalPrice}</h3>
+        <h3>Subtotal: ${cartTotalPrice}</h3>
         <button
           className="add-to-cart-button clear-all"
           onClick={() => clearCart()}
