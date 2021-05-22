@@ -8,20 +8,26 @@ const CartItem = ({ id, name, img, inCartAmount, price }) => {
   return (
     <div>
       {inCartAmount > 0 && (
-        <div>
-          <p>price: ${price}</p>
-          <p>{name}</p>
-          <p>
-            {inCartAmount} x ${price} = ${inCartAmount * price}
-          </p>
-          <div className="in-cart-amount-section">
-            <button onClick={() => decreaseItemAmount(id)}>
-              <FaMinusCircle />
-            </button>
-            <p>{inCartAmount}</p>
-            <button onClick={() => increaseItemAmount(id)}>
-              <FaPlusCircle />
-            </button>
+        <div className="cart-item">
+          <img className="in-cart-img" src={img} />
+          <div className="cart-item-info">
+            <p>{name}</p>
+            <p>${price}</p>
+            <div className="in-cart-amount-section">
+              <button
+                className="amount-button"
+                onClick={() => decreaseItemAmount(id)}
+              >
+                <FaMinusCircle className="amount-button-icon" />
+              </button>
+              <p>{inCartAmount}</p>
+              <button
+                className="amount-button"
+                onClick={() => increaseItemAmount(id)}
+              >
+                <FaPlusCircle className="amount-button-icon" />
+              </button>
+            </div>
           </div>
         </div>
       )}

@@ -4,7 +4,7 @@ const items = [
     id: 1,
     name: "iPhone 7",
     category: "phone",
-    img: "http://assets.stickpng.com/images/585fd13ecb11b227491c35d1.png",
+    img: "https://freepngimg.com/thumb/iphone/14-apple-iphone-png-image-thumb.png",
     price: 300,
     inCartAmount: 0,
   },

@@ -2,6 +2,7 @@ import React from "react";
 import { useGlobalContext } from "./context";
 import CartItem from "./CartItem";
 import { FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const CartContainer = () => {
   const { cart, clearCart, cartTotalPrice, isCartOpen, closeCart } =
@@ -19,7 +20,23 @@ const CartContainer = () => {
         >
           <FaTimes className="x-icon" />
         </button>
-        <h1>Empty cart</h1>
+        <div className="in-cart-container">
+          <h1 className="cart-heading">Your shopping cart</h1>
+          <p>Cart is empty</p>
+        </div>
+        <img
+          className="empty-cart-img"
+          src="https://img.icons8.com/ios/452/shopping-bag--v1.png"
+        />
+
+        <Link to="/shop" className="react-link">
+          <button
+            className="add-to-cart-button clear-all browse-products"
+            onClick={() => closeCart()}
+          >
+            Browse products
+          </button>
+        </Link>
       </section>
     );
   }
@@ -35,12 +52,19 @@ const CartContainer = () => {
       >
         <FaTimes className="x-icon" />
       </button>
-      <h1>Cart</h1>
-      {cart.map((cartItem) => {
-        return <CartItem key={cartItem.id} {...cartItem} />;
-      })}
-      <h3>total price: ${cartTotalPrice}</h3>
-      <button onClick={() => clearCart()}>Clear all</button>
+      <div className="in-cart-container">
+        <h1 className="cart-heading">Your shopping cart</h1>
+        {cart.map((cartItem) => {
+          return <CartItem key={cartItem.id} {...cartItem} />;
+        })}
+        <h3>total price: ${cartTotalPrice}</h3>
+        <button
+          className="add-to-cart-button clear-all"
+          onClick={() => clearCart()}
+        >
+          Clear all
+        </button>
+      </div>
     </section>
   );
 };
