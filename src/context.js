@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import App from "./App";
 import shopItems from "./data";
 
 const AppContext = React.createContext();
@@ -47,19 +46,20 @@ const AppProvider = ({ children }) => {
     setIsCartOpen(false);
   };
 
-  //To fix
   const calculateCartTotalCost = () => {
-    items.reduce((a, b) => {
-      console.log(a.inCartAmount * a.price + b.inCartAmount * b.price);
-    });
+    const newTotalPrice = items.reduce(
+      (prev, cur) => prev + cur.price * cur.inCartAmount,
+      0
+    );
+    setCartTotalPrice(newTotalPrice);
   };
 
   const addItemToCart = (id) => {
     items.map((item) => {
       if (item.id === id) {
-        setCartTotalPrice(cartTotalPrice + item.price);
+        calculateCartTotalCost();
         setCart([...cart, item]);
-        return (item.inCartAmount += 1);
+        return (item.inCartAmount = 1);
       }
       setTotalItemsInCart(totalItemsInCart + 1);
     });
@@ -73,8 +73,8 @@ const AppProvider = ({ children }) => {
   const increaseItemAmount = (id) => {
     items.map((item) => {
       if (item.id === id) {
-        setCartTotalPrice(cartTotalPrice + item.price);
-        return (item.inCartAmount += 1);
+        item.inCartAmount += 1;
+        calculateCartTotalCost();
       }
       setTotalItemsInCart(totalItemsInCart + 1);
     });
@@ -83,8 +83,8 @@ const AppProvider = ({ children }) => {
   const decreaseItemAmount = (id) => {
     items.map((item) => {
       if (item.id === id) {
-        setCartTotalPrice(cartTotalPrice - item.price);
-        return (item.inCartAmount -= 1);
+        item.inCartAmount -= 1;
+        calculateCartTotalCost();
       }
       setTotalItemsInCart(totalItemsInCart - 1);
       deleteItemFromCart();
@@ -110,6 +110,7 @@ const AppProvider = ({ children }) => {
         addItemToCart,
         filterByCategory,
         calculateCartTotalCost,
+        deleteItemFromCart,
       }}
     >
       {children}

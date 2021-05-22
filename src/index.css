@@ -132,8 +132,14 @@ code {
   margin-bottom: 40px;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .cart-form {
-  width: 40px;
+  width: 30px;
 }
 
 .empty-cart-img {

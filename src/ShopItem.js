@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useGlobalContext } from "./context";
-import ShopContainer from "./ShopContainer";
-import items from "./data";
 
 const ShopItem = ({ id, name, price, img, inCartAmount }) => {
   const { addItemToCart } = useGlobalContext();
 
   return (
     <div className="shop-item-container">
-      <img className="shop-img" src={img} />
+      <img className="shop-img" alt="product" src={img} />
       <div className="item-info">
         <p>{name}</p>
         <p>${price}</p>

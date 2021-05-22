@@ -10,7 +10,7 @@ const CartItem = ({ id, name, img, inCartAmount, price }) => {
     <div>
       {inCartAmount > 0 && (
         <div className="cart-item">
-          <img className="in-cart-img" src={img} />
+          <img className="in-cart-img" alt="item" src={img} />
           <div className="cart-item-info">
             <p className="in-cart-name">{name}</p>
             <p className="in-cart-price">${price}</p>
@@ -21,8 +21,11 @@ const CartItem = ({ id, name, img, inCartAmount, price }) => {
               >
                 <FaMinus className="amount-button-icon" />
               </button>
-              <p className="in-cart-amount-number">{inCartAmount}</p>
-              {/*<ItemNumberForm inCartAmount={inCartAmount}  /> */}
+              <ItemNumberForm
+                className="in-cart-amount-number"
+                inCartAmount={inCartAmount}
+                id={id}
+              />
               <button
                 className="amount-button"
                 onClick={() => increaseItemAmount(id)}

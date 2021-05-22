@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useGlobalContext } from "./context";
-import items from "./data";
 import ShopItem from "./ShopItem";
 
 const ShopContainer = () => {

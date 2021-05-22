@@ -1,15 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { useGlobalContext } from "./context";
 
-const ItemNumberForm = ({ inCartAmount }) => {
-  const { calculateCartTotalCost } = useGlobalContext();
+const ItemNumberForm = ({ inCartAmount, id }) => {
+  const { calculateCartTotalCost, items, decreaseItemAmount } =
+    useGlobalContext();
   const [amount, setAmount] = useState(inCartAmount);
 
   useEffect(() => {
-    inCartAmount = amount;
+    if (amount < 1 || amount === "") {
+      decreaseItemAmount(id);
+      setAmount(0);
+    }
+    items[id - 1].inCartAmount = amount;
     calculateCartTotalCost();
-    console.log(inCartAmount);
   }, [amount]);
+
+  useEffect(() => {
+    setAmount(inCartAmount);
+  }, [inCartAmount]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -20,9 +29,11 @@ const ItemNumberForm = ({ inCartAmount }) => {
         <input
           className="cart-form"
           type="number"
-          name="amount"
+          name={id}
           value={amount}
-          onChange={(e) => setAmount(e.target.value)}
+          onChange={(e) => {
+            setAmount(e.target.value);
+          }}
         ></input>
       </form>
     </div>

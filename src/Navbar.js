@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import { useGlobalContext } from "./context";
 import { FaShoppingBag } from "react-icons/fa";
 import { Link } from "react-router-dom";

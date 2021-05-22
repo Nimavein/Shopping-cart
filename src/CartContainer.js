@@ -33,6 +33,7 @@ const CartContainer = () => {
         <img
           className="empty-cart-img"
           src="https://img.icons8.com/ios/452/shopping-bag--v1.png"
+          alt="empty cart"
         />
 
         <Link to="/shop" className="react-link">
