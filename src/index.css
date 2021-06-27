@@ -270,10 +270,14 @@ input::-webkit-inner-spin-button {
 .already-in-cart {
   background-color: black;
   color: white;
-  display: block;
-  width: 8rem;
   padding: 10px;
-  border: black solid 1px;
+}
+
+.disabled-button {
+  background-color: black;
+  color: white;
+
+  cursor: default;
 }
 
 .categories-heading {
@@ -387,4 +391,13 @@ input::-webkit-inner-spin-button {
   width: 60%;
   margin-bottom: 20px;
   height: 4rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .cart-container {
+    width: 100%;
+  }
+  .shop-item-container {
+    width: 32%;
+  }
 }

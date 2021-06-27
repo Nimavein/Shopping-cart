@@ -18,7 +18,15 @@ const ShopItem = ({ id, name, price, img, inCartAmount }) => {
             Add to cart
           </button>
         )}
-        {inCartAmount > 0 && <p className="already-in-cart">Already in cart</p>}
+        {inCartAmount > 0 && (
+          <button
+            className="add-to-cart-button disabled-button"
+            disabled
+            onClick={() => addItemToCart(id)}
+          >
+            Already in cart
+          </button>
+        )}
       </div>
     </div>
   );
