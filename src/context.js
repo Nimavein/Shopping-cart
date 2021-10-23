@@ -14,18 +14,19 @@ const AppProvider = ({ children }) => {
   const [cartTotalPrice, setCartTotalPrice] = useState(0);
   const [items, setItems] = useState(shopItems);
   const [cart, setCart] = useState([]);
+  const [filteredItemsList, setFilteredItemsList] = useState([]);
   const [totalItemsInCart, setTotalItemsInCart] = useState(0);
   const [categories, setCategories] = useState(allCategories);
 
   const filterByCategory = (category) => {
     if (category === "all") {
-      setItems(shopItems);
+      setFilteredItemsList(shopItems);
       return;
     } else {
       const filteredItems = shopItems.filter(
         (shopItem) => shopItem.category === category
       );
-      setItems(filteredItems);
+      setFilteredItemsList(filteredItems);
     }
   };
 
@@ -120,6 +121,8 @@ const AppProvider = ({ children }) => {
         calculateCartTotalCost,
         deleteItemFromCart,
         calculateTotalItemsInCartAmount,
+        filteredItemsList,
+        setFilteredItemsList,
       }}
     >
       {children}

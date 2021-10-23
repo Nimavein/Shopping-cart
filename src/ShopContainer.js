@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useGlobalContext } from "./context";
 import ShopItem from "./ShopItem";
 
 const ShopContainer = () => {
-  const { items, filterByCategory, categories } = useGlobalContext();
+  const {
+    items,
+    filterByCategory,
+    categories,
+    filteredItemsList,
+    setFilteredItemsList,
+  } = useGlobalContext();
+
+  useEffect(() => {
+    setFilteredItemsList(items);
+  }, [items]);
 
   return (
     <div className="shop-container">
@@ -24,7 +34,7 @@ const ShopContainer = () => {
         })}
       </div>
       <div className="all-items-in-shop">
-        {items.map((item) => {
+        {filteredItemsList.map((item) => {
           if (item.id) {
             return <ShopItem key={item.id} {...item} />;
           }
