@@ -430,6 +430,7 @@ input::-webkit-inner-spin-button {
   }
   .cart-heading {
     margin-left: 0 !important;
+    text-align: center;
   }
   .subtotal {
     text-align: center;
