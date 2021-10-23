@@ -435,4 +435,11 @@ input::-webkit-inner-spin-button {
   .subtotal {
     text-align: center;
   }
+  .home-content {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
